@@ -51,12 +51,12 @@ export const Notifications: React.FC = ({children}) => {
   </NotificationsStateContext.Provider>
 }
 
-export type useNotificationsFunction<T extends Notification = Notification> = () => {
+export type UseNotificationsFunction<T extends Notification = Notification> = () => {
   notifications: T[]
   removeNotification: (uuid: string) => void
 }
 
-export const useNotifications: useNotificationsFunction = () => {
+export const useNotifications: UseNotificationsFunction = () => {
   const state = useContext(NotificationsStateContext)
   const dispatch = useContext(NotificationsDispatchContext)
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import {render, cleanup, fireEvent} from '@testing-library/react'
 
-import {useNotify, useNotifications, Notifications, useNotificationsFunction} from './hook-notifications'
+import {useNotify, useNotifications, Notifications, UseNotificationsFunction} from './hook-notifications'
 
 const TestWrapper: React.FC = ({children}) => {
   return <Notifications>{children}</Notifications>
@@ -54,7 +54,7 @@ describe('Notifications', () => {
 
   it('should support custom notification types', () => {
     const Component: React.FC = () => {
-      const {notifications} = (useNotifications as useNotificationsFunction<{
+      const {notifications} = (useNotifications as UseNotificationsFunction<{
         icon: string
         title: string
         message: string
