@@ -64,3 +64,27 @@ export const ButtonPresser: React.FC = () => {
   </div>
 }
 ```
+
+You can change the type of the notifications by re-exporting the two hooks from another file in your code.
+
+```ts
+import {useNotify as notify, UseNotifyFunction, useNotifications as notifications, UseNotificationsFunction} from './hook-notifications'
+
+interface NewNotification{
+  title: string
+  message: string
+  icon: string
+}
+
+interface Notification extends NewNotification{
+  uuid: string
+}
+
+export const useNotify: UseNotifyFunction<NewNotification> = () => {
+  return notify()
+}
+
+export const useNotifications: UseNotificationsFunction<Notification> = () => {
+  return (notifications() as any)
+}
+```
